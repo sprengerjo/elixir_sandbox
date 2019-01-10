@@ -12,13 +12,10 @@ defmodule Bowling do
     Enum.sum(rolls) + bonus(rolls)
   end
 
-  def bonus(rolls) do
-    case rolls do
-      [] -> 0
-      [_, _, _] -> 0
-      [10 | tail] -> Enum.sum(Enum.take tail, 2) + bonus tail
-      [head, second | tail] when head + second == 10 -> List.first(tail) + bonus tail
-      [_, _ | tail] -> bonus tail
-    end
-  end
+  defp bonus([]), do: 0
+  defp bonus([_, _, _]), do: 0
+  defp bonus([10 | tail]), do: Enum.sum(Enum.take tail, 2) + bonus tail
+  defp bonus([head, second | tail]) when head + second == 10, do: List.first(tail) + bonus tail
+  defp bonus([_, _ | tail]), do: bonus tail
+
 end
