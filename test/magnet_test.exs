@@ -6,7 +6,7 @@ defmodule MagnetTest do
       merr = 1.0e-6
       inrange = (abs(actual - expected) <= merr)
       IO.puts("In range: #{inrange}")
-      if (inrange == false) do
+      if inrange == false do
           exp = Float.round(expected, 6)
           act = Float.round(actual, 6)
           IO.puts("At 1e-6: Expected value must be #{exp} but was #{act}")

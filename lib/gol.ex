@@ -1,4 +1,7 @@
 defmodule GoL do
+  @moduledoc """
+     Provides Game of life functions.
+   """
 
   def identify_neighbours(), do: []
   def identify_neighbours({}), do: []
