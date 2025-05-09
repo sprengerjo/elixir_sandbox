@@ -34,8 +34,6 @@ defmodule Twice do
     {u, x, y}
   end
 
-  use Bitwise
-
   def dbl_linear_knuth(n) do
 
     {_, un} = Enum.reduce(
@@ -73,9 +71,7 @@ defmodule Twice do
   end
 
   defp binary(un, cache, lb, ub) do
-    mid = lb + (
-      (ub - lb)
-      >>> 1)
+    mid = lb + Bitwise.">>>"((ub - lb), 1)
 
     %{^mid => mid_v} = cache
 
